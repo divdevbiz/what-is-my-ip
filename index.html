@@ -129,6 +129,25 @@ hs.src = ('//s10.histats.com/js15_gif_as.js');
 <noscript><a href="/" alt="cool hit counter" target="_blank" ><div id="histatsC"><img border="0" src="//s4is.histats.com/8006.gif?4862709&103"></div></a>
 </noscript>
 <!-- Histats.com  END  -->
+  <script>
+var links = document.getElementsByTagName('a');
+
+for (var i = 0; i < links.length; i++) {
+  var link = links[i];
+  var href = link.getAttribute('href');
+
+  if (href && href.includes('www.tipsaja.com') && (href.startsWith('http://') || href.startsWith('https://'))) {
+    // Hapus "https://" dari awal link
+    href = href.replace(/^https?:\/\//, '');
+
+    // Tambahkan "https://www.google.com/amp/s/" di awal link
+    href = 'https://www.google.com/amp/s/' + href;
+
+    // Perbarui atribut href pada link
+    link.setAttribute('href', href);
+  }
+}
+</script>                          
                         </div>
                     </div>
                 </div>
