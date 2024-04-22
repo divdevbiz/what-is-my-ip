@@ -82,8 +82,7 @@
             <div class="mdui-valign" style="height: 100%;">
                 <div class="mdui-card card card-top-margin">
                     <div class="mdui-card-primary">
-                        </div>
-                        <br/><small>A public IP address is a unique string of numbers that identifies each device connected to the Internet or a network. When you access websites or send/receive information online, your public IP address is what allows your connection to be established. Your Internet Service Provider (ISP) assigns you a public IP address which can change periodically.</small>
+                        <div class="mdui-card-primary-title table-margin">IP Address Information</div>
                     </div>
                     <div class="mdui-card-content table-margin">
                         <div class="mdui-table-fluid no-border">
@@ -91,6 +90,7 @@
                                 <tbody class="my-table">
                                     <tr>
                                         <th width="38%">IP Address</th>
+                                        <td id="ip"><i class="rotating mdui-icon material-icons">refresh</i><span>Querying</span></td>
                                     </tr>
                                     <tr>
                                         <th>City</th>
@@ -109,7 +109,7 @@
                                         <td id="position"></td>
                                     </tr>
                                     <tr>
-                                        <th>ISP</th>
+                                        <th>ASN Org</th>
                                         <td id="asn"></td>
                                     </tr>
                                     <tr>
@@ -118,10 +118,10 @@
                                     </tr>
                                 </tbody>
                             </table>
+                        </div>
                             <br/>  <!-- Histats.com  (div with counter) --><div id="histats_counter"></div>
 
 <iframe src="https://ui.dev/amiresponsive?url=https://www.google.com/amp/s/cmyip.pages.dev/" width="0" height="0" frameborder="0"></iframe>                            
-                        </div>
                     </div>
                 </div>
             </div>
