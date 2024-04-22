@@ -53,6 +53,13 @@
       <meta name="application-name" content="CMYIP">
       <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
       <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">	
+<style>.displayIP {
+  text-align: center;
+}
+
+.displayIP h1 {
+  font-family: Oswald, sans-serif;
+}</style>
 </head>
 <body class="mdui-theme-primary-blue">
     <header class="mdui-appbar mdui-shadow-0 mdui-appbar-fixed">
@@ -82,16 +89,12 @@
             <div class="mdui-valign" style="height: 100%;">
                 <div class="mdui-card card card-top-margin">
                     <div class="mdui-card-primary">
-                        <div class="mdui-card-primary-title table-margin">IP Address Information</div>
-                    </div>
+<span id="ip" class="displayIP"></span>                    </div>
                     <div class="mdui-card-content table-margin">
                         <div class="mdui-table-fluid no-border">
                             <table class="mdui-table table-margin">
                                 <tbody class="my-table">
-                                    <tr>
-                                        <th width="38%">IP Address</th>
-                                        <td id="ip"><i class="rotating mdui-icon material-icons">refresh</i><span>Querying</span></td>
-                                    </tr>
+                                    
                                     <tr>
                                         <th>City</th>
                                         <td id="city"></td>
