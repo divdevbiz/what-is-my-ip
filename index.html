@@ -79,7 +79,11 @@
   font-family: 'Bebas Neue', sans-serif;
   font-size: 3em;
   text-align: center;
+margin-bottom: 0;
   color: #007bff; /* Warna biru Bootstrap primary */
+}
+.ipDescription {
+  margin-top: 0; /* Menghapus margin atas pada elemen p */
 }
 </style>    
 </head>
@@ -111,8 +115,8 @@
             <div class="mdui-valign" style="height: 100%;">
                 <div class="mdui-card card card-top-margin">
                                     <div class="mdui-card-primary"></div>
-      <h1 class="displayIP" id="ip"></h1>
-<center><p>Is your public IP address</p></center>
+<h1 class="displayIP" id="ip"></h1>
+<center><p class="ipDescription">Is your public IP address</p></center>
              <br/><div class="mdui-card-content table-margin">
                         <div class="mdui-table-fluid no-border">
                             <table class="mdui-table table-margin">
