@@ -13,7 +13,7 @@ function setText(obj, text) {
 }
 
 async function init_page() {
-    const localIP = await fetchHandler("/json/ipdata")
+    const localIP = await fetchHandler("/json/cf")
     fillin(localIP, false)
     console.log(localIP)
 }
