@@ -1,4 +1,4 @@
-const API = "https://freeipapi.com"
+const API = "https://ip.hlz.ink"
 
 document.addEventListener("DOMContentLoaded", event => {
     init_page()
@@ -12,10 +12,15 @@ function setText(obj, text) {
     obj.innerText = text
 }
 
+const rotatingVariables = ["/json"];
+let rotatingIndex = 0;
+
 async function init_page() {
-    const localIP = await fetchHandler("/api/json")
-    fillin(localIP, false)
-    console.log(localIP)
+  const rotatingVariable = rotatingVariables[rotatingIndex];
+  rotatingIndex = (rotatingIndex + 1) % rotatingVariables.length;
+  const localIP = await fetchHandler(rotatingVariable);
+  fillin(localIP, false);
+  console.log(localIP);
 }
 
 async function fetchHandler(url) {
@@ -39,7 +44,7 @@ async function enter_submit(event) {
 
 function checkIPForm(ip) {
     let ipv46_regex = /(?:^(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)(?:\.(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)){3}$)|(?:^(?:(?:[a-fA-F\d]{1,4}:){7}(?:[a-fA-F\d]{1,4}|:)|(?:[a-fA-F\d]{1,4}:){6}(?:(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)(?:\\.(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)){3}|:[a-fA-F\d]{1,4}|:)|(?:[a-fA-F\d]{1,4}:){5}(?::(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)(?:\\.(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)){3}|(?::[a-fA-F\d]{1,4}){1,2}|:)|(?:[a-fA-F\d]{1,4}:){4}(?:(?::[a-fA-F\d]{1,4}){0,1}:(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)(?:\\.(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)){3}|(?::[a-fA-F\d]{1,4}){1,3}|:)|(?:[a-fA-F\d]{1,4}:){3}(?:(?::[a-fA-F\d]{1,4}){0,2}:(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)(?:\\.(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)){3}|(?::[a-fA-F\d]{1,4}){1,4}|:)|(?:[a-fA-F\d]{1,4}:){2}(?:(?::[a-fA-F\d]{1,4}){0,3}:(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)(?:\\.(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)){3}|(?::[a-fA-F\d]{1,4}){1,5}|:)|(?:[a-fA-F\d]{1,4}:){1}(?:(?::[a-fA-F\d]{1,4}){0,4}:(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)(?:\\.(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)){3}|(?::[a-fA-F\d]{1,4}){1,6}|:)|(?::(?:(?::[a-fA-F\d]{1,4}){0,5}:(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)(?:\\.(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)){3}|(?::[a-fA-F\d]{1,4}){1,7}|:)))(?:%[0-9a-zA-Z]{1,})?$)/gm;      
-    return ipv46_regex.test(ipAddress)
+    return ipv46_regex.test(ip)
 }
 
 async function searchHandler() {
@@ -63,7 +68,6 @@ function raiseSnack(text) {
 function fillin(obj, display = true) {
     if (obj == -1 || obj == {} || obj == '' || obj == null) {
         setText($('ip'), "Query Error")
-         setText($('proxy'), "")
         setText($('city'), "")
         setText($('region'), "")
         setText($('country'), "")
@@ -73,14 +77,13 @@ function fillin(obj, display = true) {
         return;
     }
     if (display) raiseSnack("Search Successfully")
-    setText($('ip'), obj['ipAddress'])
-    setText($('proxy'), obj['isProxy'])
-    setText($('city'), obj['cityName'])
+    setText($('ip'), obj['query'])
+    setText($('city'), obj['city'])
     setText($('region'), obj['regionName'])
-    setText($('country'), obj['countryName'])
-    setText($('position'), obj['latitude'] + ', ' + obj['longitude'])
+    setText($('country'), obj['country'])
+    setText($('position'), obj['lat'] + ', ' + obj['long'])
     setText($('asn'), obj['isp'])
-    setText($('timezone'), obj['timeZone'])
+    setText($('timezone'), obj['timezone'])
 
 }
 
