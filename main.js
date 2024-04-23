@@ -12,24 +12,16 @@ function setText(obj, text) {
     obj.innerText = text
 }
 
+let rotateIndex = 0;
+const rotateList = ["/cf", "/json", "/json/cf", "/json/ipgeo", "/json/ipdata", "/json/ipinfo"];
+
 async function init_page() {
-  const variables = [
-    "/cf",
-    "/json",
-    "/json/cf",
-    "/json/ipgeo",
-    "/json/ipdata",
-    "/json/ipinfo"
-  ];
-
-  let index = 0;
-  let localIP = null;
-
-  while (!localIP && index < variables.length) {
-    const variable = variables[index];
-    localIP = await fetchHandler(variable);
-    index++;
-  }
+  const rotateVar = rotateList[rotateIndex % rotateList.length];
+  rotateIndex++;
+  const localIP = await fetchHandler(rotateVar);
+  fillin(localIP, false);
+  console.log(localIP);
+}
 
   fillin(localIP, false);
   console.log(localIP);
