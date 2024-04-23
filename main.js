@@ -23,10 +23,6 @@ async function init_page() {
   console.log(localIP);
 }
 
-  fillin(localIP, false);
-  console.log(localIP);
-}
-
 async function fetchHandler(url) {
     return await fetch(API + url).then(res => {
         if (res.status == 200) {
