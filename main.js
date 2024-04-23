@@ -1,4 +1,4 @@
-const API = "https://ip.hlz.ink"
+const API = "http://ip-api.com"
 
 document.addEventListener("DOMContentLoaded", event => {
     init_page()
@@ -12,7 +12,7 @@ function setText(obj, text) {
     obj.innerText = text
 }
 
-const rotatingVariables = ["/json", "/json/cf", "/json/ipdata", "/json/ipinfo"];
+const rotatingVariables = ["/json"];
 let rotatingIndex = 0;
 
 async function init_page() {
@@ -77,12 +77,12 @@ function fillin(obj, display = true) {
         return;
     }
     if (display) raiseSnack("Search Successfully")
-    setText($('ip'), obj['ip'])
+    setText($('ip'), obj['query'])
     setText($('city'), obj['city'])
-    setText($('region'), obj['region'])
+    setText($('region'), obj['regionName'])
     setText($('country'), obj['country'])
-    setText($('position'), obj['latitude'] + ', ' + obj['longitude'])
-    setText($('asn'), obj['asn'])
+    setText($('position'), obj['lat'] + ', ' + obj['long'])
+    setText($('asn'), obj['isp'])
     setText($('timezone'), obj['timezone'])
 
 }
