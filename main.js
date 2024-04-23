@@ -80,7 +80,7 @@ function fillin(obj, display = true) {
     setText($('country'), obj['countryName'])
     setText($('position'), obj['latitude'] + ', ' + obj['longitude'])
     setText($('asn'), obj['isp'])
-    setText($('timezone'), obj['timezone'])
+    setText($('timezone'), obj['timeZone'])
 
 }
 
