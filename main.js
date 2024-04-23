@@ -1,4 +1,4 @@
-const API = "http://ip-api.com"
+const API = "https://ip.hlz.ink"
 
 document.addEventListener("DOMContentLoaded", event => {
     init_page()
