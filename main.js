@@ -12,7 +12,7 @@ function setText(obj, text) {
     obj.innerText = text
 }
 
-const rotatingVariables = ["/json"];
+const rotatingVariables = ["/json", "/json/ipgeo", "/json/ipdata", "/json/ipinfo"];
 let rotatingIndex = 0;
 
 async function init_page() {
