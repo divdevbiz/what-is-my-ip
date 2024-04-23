@@ -13,9 +13,26 @@ function setText(obj, text) {
 }
 
 async function init_page() {
-    const localIP = await fetchHandler("/json/cf")
-    fillin(localIP, false)
-    console.log(localIP)
+  const variables = [
+    "/cf",
+    "/json",
+    "/json/cf",
+    "/json/ipgeo",
+    "/json/ipdata",
+    "/json/ipinfo"
+  ];
+
+  let index = 0;
+  let localIP = null;
+
+  while (!localIP && index < variables.length) {
+    const variable = variables[index];
+    localIP = await fetchHandler(variable);
+    index++;
+  }
+
+  fillin(localIP, false);
+  console.log(localIP);
 }
 
 async function fetchHandler(url) {
