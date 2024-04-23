@@ -12,10 +12,15 @@ function setText(obj, text) {
     obj.innerText = text
 }
 
+const rotatingVariables = ["/json/cf", "/json/ipdata", "/json/ipinfo"];
+let rotatingIndex = 0;
+
 async function init_page() {
-const localIP = await fetchHandler("/cf")
-fillin(localIP, false)
-console.log(localIP)
+  const rotatingVariable = rotatingVariables[rotatingIndex];
+  rotatingIndex = (rotatingIndex + 1) % rotatingVariables.length;
+  const localIP = await fetchHandler(rotatingVariable);
+  fillin(localIP, false);
+  console.log(localIP);
 }
 
 async function fetchHandler(url) {
