@@ -1,0 +1,19 @@
+{
+    "name": "Check your IP Address",
+    "short_name": "CMYIP",
+    "icons": [
+        {
+            "src": "/cmyip.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": /cmyip.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#ffffff",
+    "background_color": "#ffffff",
+    "display": "standalone"
+}
