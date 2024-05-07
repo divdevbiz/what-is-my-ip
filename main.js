@@ -1,5 +1,7 @@
-const API = "http://ip-api.com crossorigin="anonymous"
-
+const script = document.createElement('script');
+script.src = 'http://ip-api.com';
+script.crossOrigin = 'anonymous';
+document.head.appendChild(script);
 document.addEventListener("DOMContentLoaded", event => {
     init_page()
 })
