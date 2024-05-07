@@ -1,6 +1,7 @@
 const script = document.createElement('script');
 script.src = 'https://ipapi.co';
 script.crossOrigin = 'anonymous';
+script.access-control-allow-origin = '*';
 document.head.appendChild(script);
 
 function $(id) {
