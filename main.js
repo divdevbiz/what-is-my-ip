@@ -1,7 +1,14 @@
-const script = document.createElement('script');
-script.src = 'http://ip-api.com';
-script.access-control-allow-origin = '*';
-document.head.appendChild(script);
+const axios = require('axios');
+
+axios.get('http://ip-api.com')
+  .then(response => {
+    const data = response.data;
+    // Lakukan sesuatu dengan data yang diterima dari API
+    console.log(data);
+  })
+  .catch(error => {
+    console.error('Error:', error);
+  });
 
 
 function $(id) {
