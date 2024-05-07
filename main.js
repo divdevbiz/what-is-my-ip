@@ -1,4 +1,7 @@
-const API = "http://ip-api.com";
+const script = document.createElement('script');
+script.src = 'http://ip-api.com/json';
+script.access-control-allow-origin = '*';
+document.head.appendChild(script);
 
 
 function $(id) {
