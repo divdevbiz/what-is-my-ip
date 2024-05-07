@@ -1,13 +1,15 @@
 const axios = require('axios');
 
-axios.get('http://ip-api.com')
+const API = 'http://ip-api.com';
+
+axios.get(API, { crossorigin: true })
   .then(response => {
-    const data = response.data;
-    // Lakukan sesuatu dengan data yang diterima dari API
-    console.log(data);
+    console.log(response.data);
+    // Lakukan pemrosesan data yang diterima di sini
   })
   .catch(error => {
-    console.error('Error:', error);
+    console.error(error);
+    // Tangani kesalahan yang terjadi
   });
 
 
