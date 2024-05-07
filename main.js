@@ -1,5 +1,5 @@
 const script = document.createElement('script');
-script.src = 'https://demo.ip-api.com';
+script.src = 'http://demo.ip-api.com';
 script.crossOrigin = 'anonymous';
 document.head.appendChild(script);
 
