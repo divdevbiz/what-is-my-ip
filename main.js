@@ -1,4 +1,7 @@
-const API = "https://ipapi.co"
+const script = document.createElement('script');
+script.src = 'https://ipapi.co';
+script.crossOrigin = 'anonymous';
+document.head.appendChild(script);
 
 function $(id) {
     return document.getElementById(id)
