@@ -47,7 +47,7 @@ async function searchHandler() {
         raiseSnack("Invalid Input")
         return;
     }
-    const res = await fetchHandler('/json/' + ipaddr + '?fields=status,message,country,countryCode,region,regionName,city,lat,lon,timezone,isp,mobile,proxy,query');
+    const res = await fetchHandler('/json/' + ipaddr + ');
     fillin(res)
 }
 
@@ -62,29 +62,30 @@ function raiseSnack(text) {
 function fillin(obj, display = true) {
     if (obj == -1 || obj == {} || obj == '' || obj == null) {
         setText($('ip'), "")
-		setText($('mobiles'), "")
-		setText($('proxi'), "")
+		setText($('subnet'), "")
+		setText($('ipv'), "")
         setText($('city'), "")
         setText($('region'), "")
         setText($('country'), "")
         setText($('position'), "")
-        setText($('asn'), "")
+        setText($('mobile'), "")
         setText($('timezone'), "")
-		setText($('ua'), "")
+		setText($('cpop'), "")
 		setText($('footer'), "")
         return;
     }
     if (display) raiseSnack("Search Successfully")
     setText($('ip'), obj['ip'])
-setText($('mobiles'), obj['mobile'])
-setText($('proxi'), obj['proxy'])
-    setText($('position'), obj['lat'] + ', ' + obj['lon'])
-    setText($('region'), obj['regionName'])
-    setText($('country'), obj['country'])
-    setText($('position'), obj['lat'] + ',' + obj['lon'])
-    setText($('asn'), obj['isp'])
+setText($('subnet'), obj['network'])
+setText($('ipv'), obj['version'])
+    setText($('cit'), obj['city'])
+    setText($('reg'), obj['region'])	
+    setText($('country'), obj['country_name'])
+    setText($('position'), obj['latitude'] + ',' + obj['longitude'])
+setText($('mobile'), obj['country_calling_code'])
+    setText($('asn'), obj['org'])
 setText($('timezone'), obj['timezone'])
-setText($('city'), obj['city'])
+setText($('cpop'), obj['country_population'])
 }
 
 
