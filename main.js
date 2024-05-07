@@ -9,7 +9,7 @@ function setText(obj, text) {
 }
 
 async function init_page() {
-    const localIP = await fetchHandler("/json/?fields=status,message,country,countryCode,region,regionName,city,lat,lon,timezone,isp,mobile,proxy,query")
+    const localIP = await fetchHandler("/json/")
     fillin(localIP, false)
     console.log(localIP)
 }
