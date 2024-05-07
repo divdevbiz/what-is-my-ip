@@ -1,4 +1,4 @@
-const API = "http://ip-api.com"
+const API = "http://ip-api.com crossorigin="anonymous"
 
 document.addEventListener("DOMContentLoaded", event => {
     init_page()
