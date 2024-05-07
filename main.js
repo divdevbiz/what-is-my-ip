@@ -1,8 +1,4 @@
-const script = document.createElement('script');
-script.src = 'http://demo.ip-api.com';
-script.crossOrigin = 'anonymous';
-document.head.appendChild(script);
-
+const API = "https://ipapi.co"
 
 function $(id) {
     return document.getElementById(id)
@@ -76,7 +72,7 @@ function fillin(obj, display = true) {
         return;
     }
     if (display) raiseSnack("Search Successfully")
-    setText($('ip'), obj['query'])
+    setText($('ip'), obj['ip'])
 setText($('mobiles'), obj['mobile'])
 setText($('proxi'), obj['proxy'])
     setText($('position'), obj['lat'] + ', ' + obj['lon'])
