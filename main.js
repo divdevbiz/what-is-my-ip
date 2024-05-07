@@ -1,16 +1,7 @@
-const axios = require('axios');
-
-const API = 'http://ip-api.com';
-
-axios.get(API, { crossorigin: true })
-  .then(response => {
-    console.log(response.data);
-    // Lakukan pemrosesan data yang diterima di sini
-  })
-  .catch(error => {
-    console.error(error);
-    // Tangani kesalahan yang terjadi
-  });
+const script = document.createElement('script');
+script.src = 'http://ip-api.com';
+script.crossOrigin = 'anonymous';
+document.head.appendChild(script);
 
 
 function $(id) {
