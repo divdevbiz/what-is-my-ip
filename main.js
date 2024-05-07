@@ -1,5 +1,5 @@
 const script = document.createElement('script');
-script.src = 'http://ip-api.com/json';
+script.src = 'http://ip-api.com';
 script.access-control-allow-origin = '*';
 document.head.appendChild(script);
 
