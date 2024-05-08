@@ -1,4 +1,4 @@
-const API = "https://cmyip.yoi.workers.dev"
+const API = "https://cmyip.yoi.workers.dev";
 
 document.addEventListener("DOMContentLoaded", event => {
     init_page()
