@@ -78,13 +78,13 @@ function fillin(obj, display = true) {
     setText($('ip'), obj['ip'])
 setText($('mobiles'), obj['mobile'])
 setText($('proxi'), obj['proxy'])
-    setText($('position'), obj['lat'] + ', ' + obj['lon'])
-    setText($('region'), obj['region'])
-setText($('country'), obj['flag'] + ' ' + obj['name']);
+    setText($('position'), obj['latitude'] + ', ' + obj['longitude'])
+    setText($('region'), obj['state_prov'])
+setText($('country'), obj['country_emoji'] + ' ' + obj['country_name']);
 	setText($('position'), obj['lat'] + ',' + obj['lon'])
-    setText($('asn'), obj['isp'])
+    setText($('asn'), obj['organization'])
 setText($('timezone'), obj['timezone'])
-setText($('city'), obj['city'])
+setText($('city'), obj['Jakarta'])
    setText($('ua'), obj['userAgent'])
 
 }
