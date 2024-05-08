@@ -1,4 +1,4 @@
-const API = "http://ipwho.is";
+const API = "https://ipwho.is";
 
 // Buat fungsi untuk melakukan permintaan HTTP GET
 function getIPDetails(ipAddress) {
