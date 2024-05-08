@@ -1,4 +1,4 @@
-const API = "http://ipwho.is"
+const API = "https://ipwho.is"
 
 document.addEventListener("DOMContentLoaded", event => {
     init_page()
