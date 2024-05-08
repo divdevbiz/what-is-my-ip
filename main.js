@@ -1,4 +1,8 @@
-const API = "https://ipwho.is";
+const script = document.createElement('script');
+script.src = 'https://ipwho.is';
+script.crossOrigin = 'anonymous';
+script.access-control-allow-origin = '*';
+document.head.appendChild(script);
 
 document.addEventListener("DOMContentLoaded", event => {
     init_page()
