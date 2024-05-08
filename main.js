@@ -1,10 +1,21 @@
-fetch('https://ipwho.is', {
-  headers: {
-    Referer: 'https://ipwhois.io'
-	access-control-allow-origin: '*'
-	    crossOrigin: 'anonymous'
-  }
-})
+const API = "http://ipwho.is";
+
+// Buat fungsi untuk melakukan permintaan HTTP GET
+function getIPDetails(ipAddress) {
+  const url = `${API}`;
+
+  // Lakukan permintaan HTTP GET menggunakan fetch
+  fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      // Lakukan sesuatu dengan data yang diterima
+      console.log(data);
+    })
+    .catch(error => {
+      // Tangani kesalahan
+      console.error(error);
+    });
+}
   .then(response => {
     // Lakukan sesuatu dengan respons
   })
