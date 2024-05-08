@@ -1,4 +1,4 @@
-const API = "https://img1.131213.xyz"
+const API = "https://ip.hlz.ink"
 
 document.addEventListener("DOMContentLoaded", event => {
     init_page()
@@ -13,7 +13,7 @@ function setText(obj, text) {
 }
 
 async function init_page() {
-    const localIP = await fetchHandler("/")
+    const localIP = await fetchHandler("/json")
     fillin(localIP, false)
     console.log(localIP)
 }
@@ -48,7 +48,7 @@ async function searchHandler() {
         raiseSnack("Invalid Input")
         return;
     }
-    const res = await fetchHandler('/' + ipaddr +');
+    const res = await fetchHandler('/query/' + ipaddr)
     fillin(res)
 }
 
@@ -62,25 +62,23 @@ function raiseSnack(text) {
 
 function fillin(obj, display = true) {
     if (obj == -1 || obj == {} || obj == '' || obj == null) {
-        setText($('ip'), "")
+        setText($('ip'), "Query Error")
         setText($('city'), "")
         setText($('region'), "")
         setText($('country'), "")
         setText($('position'), "")
         setText($('asn'), "")
         setText($('timezone'), "")
-		setText($('ua'), "")
         return;
     }
     if (display) raiseSnack("Search Successfully")
     setText($('ip'), obj['ip'])
-    setText($('position'), obj['latitude'] + ', ' + obj['longitude'])
+    setText($('city'), obj['city'])
     setText($('region'), obj['region'])
     setText($('country'), obj['country'])
-    setText($('asn'), obj['asOrganization'])
-setText($('timezone'), obj['timezone'])
-setText($('city'), obj['city'])
-   setText($('ua'), obj['userAgent'])
+    setText($('position'), obj['latitude'] + ', ' + obj['longitude'])
+    setText($('asn'), obj['asn'])
+    setText($('timezone'), obj['timezone'])
 
 }
 
