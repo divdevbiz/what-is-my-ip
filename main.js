@@ -1,4 +1,4 @@
-const API = "https://cmyip.yoi.workers.dev"
+const API = "https://ip.hlz.ink"
 
 document.addEventListener("DOMContentLoaded", event => {
     init_page()
@@ -13,7 +13,7 @@ function setText(obj, text) {
 }
 
 async function init_page() {
-    const localIP = await fetchHandler("/json/")
+    const localIP = await fetchHandler("/json")
     fillin(localIP, false)
     console.log(localIP)
 }
@@ -48,7 +48,7 @@ async function searchHandler() {
         raiseSnack("Invalid Input")
         return;
     }
-    const res = await fetchHandler('/json/' + ipaddr)
+    const res = await fetchHandler('/query/' + ipaddr)
     fillin(res)
 }
 
@@ -62,7 +62,7 @@ function raiseSnack(text) {
 
 function fillin(obj, display = true) {
     if (obj == -1 || obj == {} || obj == '' || obj == null) {
-        setText($('ip'), "")
+        setText($('ip'), "Query Error")
         setText($('city'), "")
         setText($('region'), "")
         setText($('country'), "")
@@ -73,13 +73,11 @@ function fillin(obj, display = true) {
     }
     if (display) raiseSnack("Search Successfully")
     setText($('ip'), obj['ip'])
-    setText($('mobil'), obj['mobile'])
-    setText($('proksi'), obj['proxy'])
     setText($('city'), obj['city'])
     setText($('region'), obj['region'])
     setText($('country'), obj['country'])
     setText($('position'), obj['latitude'] + ', ' + obj['longitude'])
-    setText($('asn'), obj['isp'])
+    setText($('asn'), obj['asn'])
     setText($('timezone'), obj['timezone'])
 
 }
