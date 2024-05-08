@@ -13,7 +13,7 @@ function setText(obj, text) {
 }
 
 async function init_page() {
-    const localIP = await fetchHandler("/json")
+    const localIP = await fetchHandler("/json/?fields=status,message,country,countryCode,region,regionName,city,zip,lat,lon,timezone,isp,org,as,mobile,proxy,query")
     fillin(localIP, false)
     console.log(localIP)
 }
@@ -48,7 +48,7 @@ async function searchHandler() {
         raiseSnack("Invalid Input")
         return;
     }
-    const res = await fetchHandler('/json/' + ipaddr + ');
+    const res = await fetchHandler('/json/' + ipaddr + ?fields=status,message,country,countryCode,region,regionName,city,zip,lat,lon,timezone,isp,org,as,mobile,proxy,query');
     fillin(res)
 }
 
