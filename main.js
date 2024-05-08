@@ -1,4 +1,4 @@
-const API = "https://ipapi.co"
+const API = "http://ipwho.is"
 
 document.addEventListener("DOMContentLoaded", event => {
     init_page()
@@ -12,7 +12,7 @@ function setText(obj, text) {
 }
 
 async function init_page() {
-    const localIP = await fetchHandler("/json/")
+    const localIP = await fetchHandler("/")
     fillin(localIP, false)
     console.log(localIP)
 }
@@ -47,7 +47,7 @@ async function searchHandler() {
         raiseSnack("Invalid Input")
         return;
     }
-    const res = await fetchHandler('/json/' + ipaddr + ');
+    const res = await fetchHandler('/' + ipaddr + ');
     fillin(res)
 }
 
@@ -77,10 +77,10 @@ function fillin(obj, display = true) {
     if (display) raiseSnack("Search Successfully")
     setText($('ip'), obj['ip'])
 setText($('subnet'), obj['network'])
-setText($('ipv'), obj['version'])
+setText($('ipv'), obj['type'])
     setText($('cit'), obj['city'])
     setText($('reg'), obj['region'])	
-    setText($('country'), obj['country_name'])
+    setText($('country'), obj['country']  + obj['flag']  + obj['emoji'])
     setText($('position'), obj['latitude'] + ',' + obj['longitude'])
 setText($('mobile'), obj['country_calling_code'])
     setText($('asn'), obj['org'])
