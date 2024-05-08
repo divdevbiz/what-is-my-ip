@@ -75,13 +75,13 @@ function fillin(obj, display = true) {
     }
     if (display) raiseSnack("Search Successfully")
     setText($('ip'), obj['ip'])
-    setText($('mobile'), obj['mobile connection'])
-    setText($('proksi'), obj['is proxy'])
+    setText($('mobile'), obj['mobile_connection'])
+    setText($('proksi'), obj['is_proxy'])
     setText($('city'), obj['city'])
     setText($('region'), obj['region'])
     setText($('country'), obj['country'])
     setText($('position'), obj['latitude'] + ', ' + obj['longitude'])
-    setText($('asn'), obj['ISP'])
+    setText($('asn'), obj['isp'])
     setText($('timezone'), obj['timezone'])
 
 }
