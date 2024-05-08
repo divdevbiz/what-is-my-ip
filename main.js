@@ -1,4 +1,4 @@
-const API = "https://cmyip.yoi.workers.dev";
+const API = "https://ip.hlz.ink";
 
 document.addEventListener("DOMContentLoaded", event => {
     init_page()
@@ -13,7 +13,7 @@ function setText(obj, text) {
 }
 
 async function init_page() {
-    const localIP = await fetchHandler("/json/")
+    const localIP = await fetchHandler("/json/ipdata")
     fillin(localIP, false)
     console.log(localIP)
 }
@@ -48,7 +48,7 @@ async function searchHandler() {
         raiseSnack("Invalid Input")
         return;
     }
-    const res = await fetchHandler('/json/' + ipaddr)
+    const res = await fetchHandler('/json/ipdata' + ipaddr)
     fillin(res)
 }
 
