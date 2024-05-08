@@ -1,4 +1,4 @@
-const API = "https://api.ipgeolocation.io"
+const API = "https://api.ipgeolocation.io";
 
 document.addEventListener("DOMContentLoaded", event => {
     init_page()
