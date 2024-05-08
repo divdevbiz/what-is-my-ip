@@ -1,9 +1,16 @@
-const script = document.createElement('script');
-script.src = 'http://ipwho.is';
-script.crossOrigin = 'anonymous';
-script.access-control-allow-origin = '*';
-document.head.appendChild(script);
-
+fetch('https://ipwho.is', {
+  headers: {
+    Referer: 'https://ipwhois.io'
+	access-control-allow-origin: '*'
+	    crossOrigin: 'anonymous'
+  }
+})
+  .then(response => {
+    // Lakukan sesuatu dengan respons
+  })
+  .catch(error => {
+    // Tangani kesalahan
+  });
 document.addEventListener("DOMContentLoaded", event => {
     init_page()
 })
