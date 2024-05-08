@@ -63,8 +63,6 @@ function raiseSnack(text) {
 function fillin(obj, display = true) {
     if (obj == -1 || obj == {} || obj == '' || obj == null) {
         setText($('ip'), "")
-        setText($('mobil'), "")
-        setText($('proksi'), "")
         setText($('city'), "")
         setText($('region'), "")
         setText($('country'), "")
