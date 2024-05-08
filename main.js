@@ -1,9 +1,4 @@
-const script = document.createElement('script');
-script.src = 'https://ipapi.co';
-script.crossOrigin = 'anonymous';
-script.access-control-allow-origin = '*';
-script.referer = 'https://ipapi.co/';
-document.head.appendChild(script);
+const API = "https://ipapi.co"
 
 document.addEventListener("DOMContentLoaded", event => {
     init_page()
