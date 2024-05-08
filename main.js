@@ -1,4 +1,4 @@
-const API = "https://ip.hlz.ink"
+const API = "http://ip-api.com"
 
 document.addEventListener("DOMContentLoaded", event => {
     init_page()
@@ -13,7 +13,7 @@ function setText(obj, text) {
 }
 
 async function init_page() {
-    const localIP = await fetchHandler("/json/ipdata")
+    const localIP = await fetchHandler("/json/")
     fillin(localIP, false)
     console.log(localIP)
 }
@@ -48,7 +48,7 @@ async function searchHandler() {
         raiseSnack("Invalid Input")
         return;
     }
-    const res = await fetchHandler('/json/ipdata' + ipaddr');
+    const res = await fetchHandler('/json/' + ipaddr + '?fields=status,message,country,countryCode,region,regionName,city,lat,lon,timezone,isp,mobile,proxy,query');
     fillin(res)
 }
 
@@ -75,12 +75,14 @@ function fillin(obj, display = true) {
         return;
     }
     if (display) raiseSnack("Search Successfully")
-    setText($('ip'), obj['ip'])
-    setText($('position'), obj['latitude'] + ', ' + obj['longitude'])
+    setText($('ip'), obj['query'])
+setText($('mobiles'), obj['mobile'])
+setText($('proxi'), obj['proxy'])
+    setText($('position'), obj['lat'] + ', ' + obj['lon'])
     setText($('region'), obj['region'])
     setText($('country'), obj['country'])
     setText($('position'), obj['lat'] + ',' + obj['lon'])
-    setText($('asn'), obj['asn'])
+    setText($('asn'), obj['isp'])
 setText($('timezone'), obj['timezone'])
 setText($('city'), obj['city'])
    setText($('ua'), obj['userAgent'])
