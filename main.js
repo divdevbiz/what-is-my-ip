@@ -1,8 +1,4 @@
-const script = document.createElement('script');
-script.src = 'https://api.ipgeolocation.io';
-script.crossOrigin = 'anonymous';
-script.access-control-allow-origin = '*';
-document.head.appendChild(script);
+const API = "https://ip.hlz.ink"
 
 document.addEventListener("DOMContentLoaded", event => {
     init_page()
@@ -17,7 +13,7 @@ function setText(obj, text) {
 }
 
 async function init_page() {
-    const localIP = await fetchHandler("/ipgeo?apiKey=674a77f113c6412c92b22c9c38366b7e")
+    const localIP = await fetchHandler("/json/ipdata")
     fillin(localIP, false)
     console.log(localIP)
 }
@@ -52,7 +48,7 @@ async function searchHandler() {
         raiseSnack("Invalid Input")
         return;
     }
-    const res = await fetchHandler('/ipgeo?apiKey=674a77f113c6412c92b22c9c38366b7e&ip=' + ipaddr');
+    const res = await fetchHandler('/json/ipdata' + ipaddr');
     fillin(res)
 }
 
@@ -82,13 +78,13 @@ function fillin(obj, display = true) {
     setText($('ip'), obj['ip'])
 setText($('mobiles'), obj['mobile'])
 setText($('proxi'), obj['proxy'])
-    setText($('position'), obj['latitude'] + ', ' + obj['longitude'])
-    setText($('region'), obj['state_prov'])
-setText($('country'), obj['country_emoji'] + ' ' + obj['country_name']);
-	setText($('position'), obj['lat'] + ',' + obj['lon'])
-    setText($('asn'), obj['organization'])
+    setText($('position'), obj['lat'] + ', ' + obj['lon'])
+    setText($('region'), obj['region'])
+    setText($('country'), obj['country'])
+    setText($('position'), obj['lat'] + ',' + obj['lon'])
+    setText($('asn'), obj['isp'])
 setText($('timezone'), obj['timezone'])
-setText($('city'), obj['Jakarta'])
+setText($('city'), obj['city'])
    setText($('ua'), obj['userAgent'])
 
 }
