@@ -73,6 +73,9 @@
     width: 100%;
   }
 }
+ .copy-icon {
+      cursor: pointer;
+    }
 @media (max-width: 767px) {
   .container {
     width: 100%;
@@ -137,6 +140,7 @@ RESPONSIVE ADS
 		    <tr>
                                         <th>CMYIP API</th>
                                         <td><small>https://cmyip.yoi.workers.dev/json/</small></td>
+			          <td><i class="far fa-copy copy-icon" onclick="copyToClipboard()"></i></td>
                                     </tr>
             </tbody>
         </table>
@@ -157,5 +161,18 @@ hs.src = ('//s10.histats.com/js15_as.js');
 <!-- Histats.com  END  --></center>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    function copyToClipboard() {
+      var urlElement = document.querySelector('td small');
+      var url = urlElement.innerText;
+
+      var dummyElement = document.createElement('textarea');
+      dummyElement.value = url;
+      document.body.appendChild(dummyElement);
+      dummyElement.select();
+      document.execCommand('copy');
+      document.body.removeChild(dummyElement);
+    }
+  </script>
 </body>
 </html>
