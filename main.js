@@ -1,5 +1,5 @@
 const script = document.createElement('script');
-script.src = 'https://ipwho.is';
+script.src = 'http://ipwho.is';
 script.crossOrigin = 'anonymous';
 script.access-control-allow-origin = '*';
 document.head.appendChild(script);
