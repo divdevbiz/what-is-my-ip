@@ -1,4 +1,4 @@
-const API = "https://api.geoapify.com"
+const API = "https://api.ipgeolocation.io"
 
 document.addEventListener("DOMContentLoaded", event => {
     init_page()
@@ -13,7 +13,7 @@ function setText(obj, text) {
 }
 
 async function init_page() {
-    const localIP = await fetchHandler("/v1/ipinfo?&apiKey=995fc0abd5cf44c6895d479056de747d")
+    const localIP = await fetchHandler("/ipgeo?apiKey=674a77f113c6412c92b22c9c38366b7e")
     fillin(localIP, false)
     console.log(localIP)
 }
@@ -48,7 +48,7 @@ async function searchHandler() {
         raiseSnack("Invalid Input")
         return;
     }
-    const res = await fetchHandler('/v1/ipinfo?' + ipaddr + '&apiKey=995fc0abd5cf44c6895d479056de747d');
+    const res = await fetchHandler('/ipgeo?apiKey=674a77f113c6412c92b22c9c38366b7e&ip=' + ipaddr');
     fillin(res)
 }
 
