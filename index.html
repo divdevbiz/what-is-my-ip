@@ -66,16 +66,35 @@
   align-items: center;
   margin-bottom: 20px;
 }
+ .copy-icon {
+      cursor: pointer;
+      position: relative;
+    }
 
+    .tooltip {
+      visibility: hidden;
+      background-color: rgba(0, 0, 0, 0.75);
+      color: #fff;
+      text-align: center;
+      padding: 5px;
+      border-radius: 4px;
+      position: absolute;
+      bottom: 125%;
+      left: 50%;
+      transform: translateX(-50%);
+      white-space: nowrap;
+      z-index: 1;
+    }
+
+    .copy-icon:hover .tooltip {
+      visibility: visible;
+    }
 @media (max-width: 767px) {
   /* Mobile */
   .ads {
     width: 100%;
   }
 }
- .copy-icon {
-      cursor: pointer;
-    }
 @media (max-width: 767px) {
   .container {
     width: 100%;
@@ -140,8 +159,8 @@ RESPONSIVE ADS
 		    <tr>
                                         <th>CMYIP API</th>
                                         <td><small>https://cmyip.yoi.workers.dev/json/</small></td>
-			          <td><i class="far fa-copy copy-icon" onclick="copyToClipboard()"></i></td>
-                                    </tr>
+<i class="far fa-copy copy-icon" onclick="copyToClipboard()"></i>
+        <span class="tooltip">API URL Copied</span>                                    </tr>
             </tbody>
         </table>
     </div>
