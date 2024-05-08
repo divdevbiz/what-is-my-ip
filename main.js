@@ -1,4 +1,4 @@
-const API = "https://img1.131213.xyz"
+const API = "http://ip-api.com"
 
 document.addEventListener("DOMContentLoaded", event => {
     init_page()
@@ -63,8 +63,6 @@ function raiseSnack(text) {
 function fillin(obj, display = true) {
     if (obj == -1 || obj == {} || obj == '' || obj == null) {
         setText($('ip'), "")
-		setText($('mobiles'), "")
-		setText($('proxi'), "")
         setText($('city'), "")
         setText($('region'), "")
         setText($('country'), "")
@@ -75,7 +73,7 @@ function fillin(obj, display = true) {
         return;
     }
     if (display) raiseSnack("Search Successfully")
-    setText($('ip'), obj['ip'])
+    setText($('ip'), obj['query'])
 setText($('mobiles'), obj['mobile'])
 setText($('proxi'), obj['proxy'])
     setText($('position'), obj['lat'] + ', ' + obj['lon'])
