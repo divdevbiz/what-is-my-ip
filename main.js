@@ -62,7 +62,7 @@ function raiseSnack(text) {
 
 function fillin(obj, display = true) {
     if (obj == -1 || obj == {} || obj == '' || obj == null) {
-        setText($('ip'), "Query Error")
+        setText($('ip'), "")
         setText($('city'), "")
         setText($('region'), "")
         setText($('country'), "")
