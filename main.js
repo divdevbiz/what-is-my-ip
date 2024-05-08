@@ -1,4 +1,8 @@
-const API = "https://api.ipgeolocation.io";
+const script = document.createElement('script');
+script.src = 'https://api.ipgeolocation.io';
+script.crossOrigin = 'anonymous';
+script.access-control-allow-origin = '*';
+document.head.appendChild(script);
 
 document.addEventListener("DOMContentLoaded", event => {
     init_page()
