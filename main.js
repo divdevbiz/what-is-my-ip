@@ -62,7 +62,9 @@ function raiseSnack(text) {
 
 function fillin(obj, display = true) {
     if (obj == -1 || obj == {} || obj == '' || obj == null) {
-        setText($('ip'), "Query Error")
+        setText($('ip'), "")
+        setText($('mobil'), "")
+        setText($('proksi'), "")
         setText($('city'), "")
         setText($('region'), "")
         setText($('country'), "")
@@ -73,6 +75,8 @@ function fillin(obj, display = true) {
     }
     if (display) raiseSnack("Search Successfully")
     setText($('ip'), obj['ip'])
+    setText($('mobile'), obj['mobile connection'])
+    setText($('proksi'), obj['is proxy'])
     setText($('city'), obj['city'])
     setText($('region'), obj['region'])
     setText($('country'), obj['country'])
