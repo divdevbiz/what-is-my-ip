@@ -5,6 +5,9 @@ script.access-control-allow-origin = '*';
 script.referer = 'https://ipapi.co/';
 document.head.appendChild(script);
 
+document.addEventListener("DOMContentLoaded", event => {
+    init_page()
+})
 function $(id) {
     return document.getElementById(id)
 }
