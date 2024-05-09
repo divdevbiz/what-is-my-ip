@@ -1,4 +1,4 @@
-const API = "https://apiip.net"
+const API = "https://cmyip.yoi.workers.dev"
 
 document.addEventListener("DOMContentLoaded", event => {
     init_page()
@@ -13,7 +13,7 @@ function setText(obj, text) {
 }
 
 async function init_page() {
-    const localIP = await fetchHandler("/api/ip-check-public")
+    const localIP = await fetchHandler("/json/")
     fillin(localIP, false)
     console.log(localIP)
 }
@@ -72,7 +72,7 @@ function fillin(obj, display = true) {
         return;
     }
     if (display) raiseSnack("Search Successfully")
-    setText($('ip'), obj['data']['ip'])
+    setText($('ip'), obj['ip'])
     setText($('city'), obj['city'])
     setText($('region'), obj['region'])
     setText($('country'), obj['country'])
