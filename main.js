@@ -1,4 +1,4 @@
-const API = "https://api.ip.sb"
+const API = "https://ipapi.yoi.workers.dev"
 
 document.addEventListener("DOMContentLoaded", event => {
     init_page()
@@ -13,7 +13,7 @@ function setText(obj, text) {
 }
 
 async function init_page() {
-    const localIP = await fetchHandler("/geoip")
+    const localIP = await fetchHandler("/json/")
     fillin(localIP, false)
     console.log(localIP)
 }
@@ -48,7 +48,7 @@ async function searchHandler() {
         raiseSnack("Invalid Input")
         return;
     }
-    const res = await fetchHandler('/geoip/' + ipaddr)
+    const res = await fetchHandler('/json/' + ipaddr)
     fillin(res)
 }
 
