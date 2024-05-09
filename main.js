@@ -72,7 +72,7 @@ function fillin(obj, display = true) {
         return;
     }
     if (display) raiseSnack("Search Successfully")
-    setText($('ip'), obj['data']['ip']);
+    setText($('ip'), obj['data']['ip'])
     setText($('city'), obj['city'])
     setText($('region'), obj['region'])
     setText($('country'), obj['country'])
