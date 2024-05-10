@@ -1,4 +1,4 @@
-const API = "https://ipapi.co"
+const API = "https://img1.131213.xyz"
 
 document.addEventListener("DOMContentLoaded", event => {
     init_page()
@@ -13,7 +13,7 @@ function setText(obj, text) {
 }
 
 async function init_page() {
-    const localIP = await fetchHandler("/json/")
+    const localIP = await fetchHandler("/")
     fillin(localIP, false)
     console.log(localIP)
 }
