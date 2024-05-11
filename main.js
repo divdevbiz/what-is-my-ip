@@ -1,4 +1,4 @@
-const API = "https://ip.hlz.ink"
+const API = "https://api.ip.sb"
 
 document.addEventListener("DOMContentLoaded", event => {
     init_page()
@@ -13,7 +13,7 @@ function setText(obj, text) {
 }
 
 async function init_page() {
-    const localIP = await fetchHandler("/json/ipdata")
+    const localIP = await fetchHandler("/geoip")
     fillin(localIP, false)
     console.log(localIP)
 }
@@ -48,7 +48,7 @@ async function searchHandler() {
         raiseSnack("Invalid Input")
         return;
     }
-    const res = await fetchHandler('/query/' + ipaddr)
+    const res = await fetchHandler('/geoip/' + ipaddr)
     fillin(res)
 }
 
