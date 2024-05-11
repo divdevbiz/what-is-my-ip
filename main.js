@@ -1,4 +1,4 @@
-const API = "https://ipapi.yoi.workers.dev"
+const API = "https://ip.hlz.ink"
 
 document.addEventListener("DOMContentLoaded", event => {
     init_page()
