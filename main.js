@@ -48,7 +48,7 @@ async function searchHandler() {
         raiseSnack("Invalid Input")
         return;
     }
-    const res = await fetchHandler('/query/' + ipaddr)
+    const res = await fetchHandler('/json/' + ipaddr)
     fillin(res)
 }
 
