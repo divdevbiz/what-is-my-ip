@@ -1,4 +1,4 @@
-const API = "https://ipinfo.io/widget"
+const API = "https://ipinfo.io"
 
 document.addEventListener("DOMContentLoaded", event => {
     init_page()
