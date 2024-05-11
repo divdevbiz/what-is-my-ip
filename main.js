@@ -1,19 +1,4 @@
-const axios = require('axios');
-const API = "https://ipinfo.io";
-const referer = "https://ipinfo.io/"; // Ubah dengan referer yang diinginkan
-axios.get(API, {
-  headers: {
-    Referer: referer
-  }
-})
-  .then(response => {
-    // Tangani respons di sini
-    console.log(response.data);
-  })
-  .catch(error => {
-    // Tangani error di sini
-    console.error(error);
-  });
+const API = "https://ip.hlz.ink"
 
 document.addEventListener("DOMContentLoaded", event => {
     init_page()
@@ -28,7 +13,7 @@ function setText(obj, text) {
 }
 
 async function init_page() {
-    const localIP = await fetchHandler("/widget")
+    const localIP = await fetchHandler("/json")
     fillin(localIP, false)
     console.log(localIP)
 }
@@ -63,7 +48,7 @@ async function searchHandler() {
         raiseSnack("Invalid Input")
         return;
     }
-    const res = await fetchHandler('/' + ipaddr + /json/');
+    const res = await fetchHandler('/query/' + ipaddr)
     fillin(res)
 }
 
@@ -77,9 +62,7 @@ function raiseSnack(text) {
 
 function fillin(obj, display = true) {
     if (obj == -1 || obj == {} || obj == '' || obj == null) {
-        setText($('ip'), "")
-		setText($('mobiles'), "")
-		setText($('proxi'), "")
+        setText($('ip'), "Query Error")
         setText($('city'), "")
         setText($('region'), "")
         setText($('country'), "")
@@ -90,15 +73,13 @@ function fillin(obj, display = true) {
     }
     if (display) raiseSnack("Search Successfully")
     setText($('ip'), obj['ip'])
-setText($('mobiles'), obj['mobile'])
-setText($('proxi'), obj['proxy'])
-    setText($('position'), obj['lat'] + ', ' + obj['lon'])
-    setText($('region'), obj['regionName'])
+    setText($('city'), obj['city'])
+    setText($('region'), obj['region'])
     setText($('country'), obj['country'])
-    setText($('position'), obj['lat'] + ',' + obj['lon'])
-    setText($('asn'), obj['org'])
-setText($('timezone'), obj['timezone'])
-setText($('city'), obj['city'])
+    setText($('position'), obj['latitude'] + ', ' + obj['longitude'])
+    setText($('asn'), obj['asn'])
+    setText($('timezone'), obj['timezone'])
+
 }
 
 
