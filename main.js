@@ -1,35 +1,36 @@
-const API = "https://cmyip.yoi.workers.dev"
+const API = "https://cmyip.yoi.workers.dev";
 
 document.addEventListener("DOMContentLoaded", event => {
-    init_page()
-})
+    init_page();
+});
 
 function $(id) {
-    return document.getElementById(id)
+    return document.getElementById(id);
 }
 
 function setText(obj, text) {
-    obj.innerText = text
+    obj.innerText = text;
 }
 
 async function init_page() {
-    const localIP = await fetchHandler("/json")
-    fillin(localIP, false)
-    console.log(localIP)
+    const localIP = await fetchHandler("/json");
+    fillin(localIP);
+    console.log(localIP);
 }
 
 async function fetchHandler(url) {
-    return await fetch(API + url).then(res => {
-        if (res.status == 200) {
-            return res.json();
-        }
-        throw new Error("API Request Error")
-    }).catch(error => {
-        console.log(error)
-        return -1;
-    })
+    return await fetch(API + url)
+        .then(res => {
+            if (res.status == 200) {
+                return res.json();
+            }
+            throw new Error("API Request Error");
+        })
+        .catch(error => {
+            console.log(error);
+            return -1;
+        });
 }
-
 
 async function enter_submit(event) {
     if (event.keyCode == 13) {
