@@ -132,7 +132,32 @@ h1 {
 }
 
 </style>
+<script>
+function tampilkanWaktu() {
+  const sekarang = new Date();
+  let jam = sekarang.getHours();
+  let menit = sekarang.getMinutes();
+  const ampm = jam >= 12 ? 'PM' : 'AM';
 
+  jam = jam % 12;
+  jam = jam ? jam : 12; // Jika jam 0, ubah menjadi 12
+
+  menit = menit < 10 ? '0' + menit : menit;
+
+  const tanggal = sekarang.getDate();
+  const bulan = sekarang.getMonth() + 1; // Bulan dimulai dari 0
+  const tahun = sekarang.getFullYear();
+
+  const waktuString = `${jam}:${menit} ${ampm} ${tanggal}/${bulan}/${tahun}`;
+  document.getElementById('waktu').textContent = waktuString; 
+}
+
+// Perbarui waktu setiap detik
+setInterval(tampilkanWaktu, 1000);
+
+// Panggil fungsi pertama kali untuk menampilkan waktu saat halaman dimuat
+tampilkanWaktu();
+</script>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark">
@@ -183,7 +208,7 @@ RESPONSIVE ADS
                                     </tr>
 		     <tr>
                                         <th>Current Time</th>
-                                        <td id="currentDateTime"></td>
+                                        <td id="waktu"></td>
                                     </tr>
 		   
             </tbody>
