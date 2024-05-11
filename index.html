@@ -179,7 +179,7 @@ RESPONSIVE ADS
                                     </tr>
                                     <tr>
                                         <th>Time Zone</th>
-                                        <td id="timezone"><span id="currentDateTime"></span></td>
+                                        <td id="currentDateTime"></td>
                                     </tr>
 		   
             </tbody>
@@ -189,7 +189,7 @@ RESPONSIVE ADS
   <script async src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
   <script async src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script>
-function displayCurrentDateTime() {
+ffunction displayCurrentDateTime() {
     const currentDate = new Date();
 
     // Mendapatkan waktu saat ini
@@ -209,16 +209,20 @@ function displayCurrentDateTime() {
     let month = currentDate.getMonth() + 1; // Bulan dimulai dari 0
     let year = currentDate.getFullYear();
 
-    // Menampilkan waktu dan tanggal
-    const dateTimeString = hours + ':' + minutes + ' ' + ampm + ' ' + date + '/' + month + '/' + year;
+    // Mendapatkan zona waktu dari elemen dengan ID "timezone"
+    const timezoneElement = document.getElementById('timezone');
+    const timezone = timezoneElement.innerText.trim();
+
+    // Menampilkan waktu dan tanggal berdampingan dengan zona waktu
+    const dateTimeString = timezone + ' ' + hours + ':' + minutes + ' ' + ampm + ' ' + date + '/' + month + '/' + year;
     setText('currentDateTime', dateTimeString);
 }
 
-// Mengganti setText dengan fungsi untuk mengatur teks pada elemen berdasarkan ID
-function setText(elementId, text) {
+// Mengganti setText dengan fungsi untuk mengatur konten HTML pada elemen berdasarkan ID
+function setText(elementId, html) {
     const element = document.getElementById(elementId);
     if (element) {
-        element.innerText = text;
+        element.innerHTML = html;
     }
 }
 
