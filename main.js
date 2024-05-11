@@ -79,7 +79,8 @@ function fillin(obj, display = true) {
     setText($('position'), obj['latitude'] + ', ' + obj['longitude'])
     setText($('asn'), obj['asn'])
     setText($('timezone'), obj['timezone'])
-
+const asn = obj['asn'].replace(/^AS\d+\s/, '');
+    setText($('asn'), asn);
 }
 
 
