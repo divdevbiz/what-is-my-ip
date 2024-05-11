@@ -48,7 +48,7 @@ async function searchHandler() {
         raiseSnack("Invalid Input")
         return;
     }
-    const res = await fetchHandler('/json/ipdata' + ipaddr)
+    const res = await fetchHandler('/query/' + ipaddr)
     fillin(res)
 }
 
