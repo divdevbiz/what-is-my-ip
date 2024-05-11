@@ -71,8 +71,6 @@ function fillin(obj, display = true) {
         setText($('position'), "")
         setText($('asn'), "")
         setText($('timezone'), "")
-		setText($('ua'), "")
-		setText($('footer'), "")
         return;
     }
     if (display) raiseSnack("Search Successfully")
@@ -83,7 +81,7 @@ setText($('proxi'), obj['proxy'])
     setText($('region'), obj['regionName'])
     setText($('country'), obj['country'])
     setText($('position'), obj['lat'] + ',' + obj['lon'])
-    setText($('asn'), obj['isp'])
+    setText($('asn'), obj['org'])
 setText($('timezone'), obj['timezone'])
 setText($('city'), obj['city'])
 }
