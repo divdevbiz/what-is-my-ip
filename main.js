@@ -1,4 +1,19 @@
-const API = "https://ipinfo.io"
+const axios = require('axios');
+const API = "https://ipinfo.io";
+const referer = "https://ipinfo.io/"; // Ubah dengan referer yang diinginkan
+axios.get(API, {
+  headers: {
+    Referer: referer
+  }
+})
+  .then(response => {
+    // Tangani respons di sini
+    console.log(response.data);
+  })
+  .catch(error => {
+    // Tangani error di sini
+    console.error(error);
+  });
 
 document.addEventListener("DOMContentLoaded", event => {
     init_page()
