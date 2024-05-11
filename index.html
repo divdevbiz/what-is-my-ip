@@ -192,41 +192,6 @@ RESPONSIVE ADS
 <center>Code by <a href="https://www.playtekno.com" target="_blank"><font color="blue">Playtekno</font></a>
   <script async src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
   <script async src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script>
-function displayCurrentDateTime() {
-    const currentDate = new Date();
 
-    // Mendapatkan waktu saat ini
-    let hours = currentDate.getHours();
-    let minutes = currentDate.getMinutes();
-    let ampm = hours >= 12 ? 'PM' : 'AM';
-
-    // Mengonversi ke format 12 jam
-    hours = hours % 12;
-    hours = hours ? hours : 12; // Jam 0 diubah menjadi 12
-
-    // Menambahkan nol di depan menit jika kurang dari 10
-    minutes = minutes < 10 ? '0' + minutes : minutes;
-
-    // Mendapatkan tanggal saat ini
-    let date = currentDate.getDate();
-    let month = currentDate.getMonth() + 1; // Bulan dimulai dari 0
-    let year = currentDate.getFullYear();
-
-    // Menampilkan waktu dan tanggal
-    const dateTimeString = hours + ':' + minutes + ' ' + ampm + ' ' + date + '/' + month + '/' + year;
-    setText('currentDateTime', dateTimeString);
-}
-
-// Mengganti setText dengan fungsi untuk mengatur teks pada elemen berdasarkan ID
-function setText(elementId, text) {
-    const element = document.getElementById(elementId);
-    if (element) {
-        element.innerText = text;
-    }
-}
-
-displayCurrentDateTime();
-</script>
 </body>
 </html>
