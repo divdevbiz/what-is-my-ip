@@ -1,4 +1,4 @@
-const API = "https://ipapi.co"
+const API = "https://ipinfo.io/widget"
 
 document.addEventListener("DOMContentLoaded", event => {
     init_page()
@@ -13,7 +13,7 @@ function setText(obj, text) {
 }
 
 async function init_page() {
-    const localIP = await fetchHandler("/json/")
+    const localIP = await fetchHandler("/widget")
     fillin(localIP, false)
     console.log(localIP)
 }
