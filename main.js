@@ -1,4 +1,3 @@
-<script async src="https://arc.io/widget.min.js#3tYDji6D"></script>
 const API = "https://api.ip.sb"
 document.addEventListener("DOMContentLoaded", event => {
     init_page()
